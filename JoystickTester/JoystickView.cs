@@ -83,6 +83,8 @@ namespace JoystickTester
 
             //Capture throttle
             int throttle = state.GetSlider()[0];
+            //Compensate for the default throttle range which is -100 to 100
+            //We want it to go from 0 to 100
             int throttlePercentage = (throttle - 100) / -2;
             info += "\nThrottle: " + throttlePercentage;
 
@@ -101,12 +103,20 @@ namespace JoystickTester
 
             //Capture Buttons.
             byte[] buttons = state.GetButtons();
+            Boolean buttonPushed = false;
             for (int i = 0; i < buttons.Length; i++)
             {
                 if (buttons[i] != 0)
                 {
+                    buttonPushed = true;
                     info += "\nButton: " + (i + 1);
                 }
+            }
+
+            //displat this if no button is pushed
+            if (!buttonPushed)
+            {
+                info += "\nButton: none";
             }
 
             lblJoystick.Text = info;
