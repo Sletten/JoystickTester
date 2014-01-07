@@ -80,7 +80,10 @@ namespace JoystickInterface
         {
             //Capture Buttons.
             byte[] buttons = state.GetButtons();
-            return buttons;
+            if (buttons != null)
+                return buttons;
+            else
+                return new byte[128];
         }
 
         private void createJoystick() {
