@@ -15,6 +15,9 @@ namespace JoystickTester
     public partial class JoystickView : Form
     {
         private Device joystick;
+
+        private int roll = 0;
+        private int pitch = 0;
         
         public JoystickView()
         {
@@ -75,6 +78,8 @@ namespace JoystickTester
 
             //Get Mouse State.
             JoystickState state = joystick.CurrentJoystickState;
+            roll = state.X;
+            pitch = state.Y;
 
             //Capture stick Position.
             info += "\nRoll: " + state.X;
@@ -119,7 +124,28 @@ namespace JoystickTester
                 info += "\nButton: none";
             }
 
-            lblJoystick.Text = info;
+            //Update throttle tracker
+            trkThrottle.Value = throttlePercentage;
+
+            //Update yaw tracker
+            trkYaw.Value = state.Rz;
+
+            this.Invalidate();
+        }
+
+        protected override void OnPaint(PaintEventArgs pe)
+        {
+            base.OnPaint(pe);
+
+            // get the graphics object to use to draw
+            Graphics g = pe.Graphics;
+
+            Pen pen = new Pen(Color.Black);
+            Brush brush = new SolidBrush(Color.White);
+
+            g.FillRectangle(brush, 10, 10, 210, 210);
+            g.DrawRectangle(pen, 10, 10, 210, 210);
+            g.DrawRectangle(pen, 110+roll, 110+pitch, 10, 10);
         }
 
         private void tmrUpdateStick_Tick(object sender, EventArgs e)
