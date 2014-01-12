@@ -38,6 +38,7 @@
             // 
             // tmrUpdateStick
             // 
+            this.tmrUpdateStick.Interval = 10;
             this.tmrUpdateStick.Tick += new System.EventHandler(this.tmrUpdateStick_Tick);
             // 
             // trkThrottle
