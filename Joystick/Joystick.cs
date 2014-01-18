@@ -17,11 +17,6 @@ namespace JoystickInterface
             configureJoystick(windowHandle);
         }
 
-        public void UpdateState()
-        {
-            state = joystick.CurrentJoystickState;
-        }
-
         public JoystickState State()
         {
             return joystick.CurrentJoystickState;
@@ -29,17 +24,17 @@ namespace JoystickInterface
 
         public int Roll()
         {
-            return state.X;
+            return State().X;
         }
 
         public int Pitch()
         {
-            return state.Y;
+            return State().Y;
         }
 
         public int Yaw()
         {
-            return state.Rz;
+            return State().Rz;
         }
 
         public void Acquire()
@@ -57,7 +52,7 @@ namespace JoystickInterface
         public int Throttle()
         {
             //Capture throttle
-            int throttle = state.GetSlider()[0];
+            int throttle = State().GetSlider()[0];
             //Compensate for the default throttle range which is -100 to 100
             //We want it to go from 0 to 100
             int throttlePercentage = (throttle - 100) / -2;
@@ -67,7 +62,7 @@ namespace JoystickInterface
         public int PointOfView()
         {
             //Capture point-of-view hat
-            int pov = state.GetPointOfView()[0];
+            int pov = State().GetPointOfView()[0];
 
             //Convert to degrees if hat is not in center
             if (pov != -1)
@@ -79,7 +74,7 @@ namespace JoystickInterface
         public byte[] Buttons()
         {
             //Capture Buttons.
-            byte[] buttons = state.GetButtons();
+            byte[] buttons = State().GetButtons();
             if (buttons != null)
                 return buttons;
             else

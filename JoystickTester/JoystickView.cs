@@ -47,8 +47,6 @@ namespace JoystickTester
 
         private void UpdateJoystick()
         {
-            joystick.UpdateState();
-     
             //Capture stick Position.
             roll = joystick.Roll();
             pitch = joystick.Pitch();
