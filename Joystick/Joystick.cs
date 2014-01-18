@@ -10,9 +10,17 @@ namespace JoystickInterface
     public class Joystick
     {
         private Device joystick;
-        private JoystickState state;
+        private InputRange range;
 
         public Joystick(IntPtr windowHandle) {
+            range = new InputRange(-100, 100);
+            createJoystick();
+            configureJoystick(windowHandle);
+        }
+
+        public Joystick(IntPtr windowHandle, int rangeFrom, int rangeTo)
+        {
+            range = new InputRange(rangeFrom, rangeTo);
             createJoystick();
             configureJoystick(windowHandle);
         }
@@ -53,10 +61,10 @@ namespace JoystickInterface
         {
             //Capture throttle
             int throttle = State().GetSlider()[0];
-            //Compensate for the default throttle range which is -100 to 100
-            //We want it to go from 0 to 100
-            int throttlePercentage = (throttle - 100) / -2;
-            return throttlePercentage;
+            //Invert the throttle value.
+            //By default it will go from range.Max to range.Min
+            //We want it to go the other way.
+            return -(throttle - range.Max);
         }
 
         public int PointOfView()
@@ -111,7 +119,7 @@ namespace JoystickInterface
                     joystick.Properties.SetRange(
                         ParameterHow.ById,
                         doi.ObjectId,
-                        new InputRange(-100, 100));
+                        range);
                 }
             }
 

@@ -39,7 +39,7 @@ namespace JoystickTester
 
         private void JoystickView_Load(object sender, EventArgs e)
         {
-            joystick = new Joystick(this.Handle);
+            joystick = new Joystick(this.Handle, 0, 250);
             joystick.Acquire();
 
             tmrUpdateStick.Enabled = true;
@@ -77,7 +77,7 @@ namespace JoystickTester
         {
             //Update yaw tracker
             int yaw = joystick.Yaw();
-            if (yaw >= -100 && yaw <= 100)
+            if (yaw >= trkYaw.Minimum && yaw <= trkYaw.Maximum)
                 trkYaw.Value = yaw;
         }
 
@@ -85,7 +85,7 @@ namespace JoystickTester
         {
             //Update throttle tracker
             int throttlePercentage = joystick.Throttle();
-            if (throttlePercentage >= 0 && throttlePercentage <= 100)
+            if (throttlePercentage >= trkThrottle.Minimum && throttlePercentage <= trkThrottle.Maximum)
                 trkThrottle.Value = throttlePercentage;
         }
 
@@ -94,7 +94,9 @@ namespace JoystickTester
             //Joystick position
             g.FillRectangle(whiteBrush, 10, 10, 210, 210);
             g.DrawRectangle(pen, 10, 10, 210, 210);
-            g.FillRectangle(blackBrush, 110 + roll, 110 + pitch, 10, 10);
+            //210 / 250 = 0.8
+            //That way we can map stick position into an square which is smaller than 250
+            g.FillRectangle(blackBrush, (int)(10 + roll*0.8), (int)(10 + pitch*0.8), 10, 10);
         }
 
         private void drawPoV(Graphics g)
@@ -124,7 +126,7 @@ namespace JoystickTester
         private void drawButtons(Graphics g)
         {
             //Gauge for 10 buttons.
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 12; i++)
             {
                 //Highlight buttons that are pressed
                 if (joystick.Buttons()[i] != 0)

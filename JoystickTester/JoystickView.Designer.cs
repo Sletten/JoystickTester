@@ -44,7 +44,7 @@
             // trkThrottle
             // 
             this.trkThrottle.Location = new System.Drawing.Point(257, 12);
-            this.trkThrottle.Maximum = 100;
+            this.trkThrottle.Maximum = 250;
             this.trkThrottle.Name = "trkThrottle";
             this.trkThrottle.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trkThrottle.Size = new System.Drawing.Size(45, 210);
@@ -54,8 +54,7 @@
             // trkYaw
             // 
             this.trkYaw.Location = new System.Drawing.Point(12, 237);
-            this.trkYaw.Maximum = 100;
-            this.trkYaw.Minimum = -100;
+            this.trkYaw.Maximum = 250;
             this.trkYaw.Name = "trkYaw";
             this.trkYaw.Size = new System.Drawing.Size(210, 45);
             this.trkYaw.TabIndex = 2;
@@ -65,7 +64,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 298);
+            this.ClientSize = new System.Drawing.Size(737, 298);
             this.Controls.Add(this.trkYaw);
             this.Controls.Add(this.trkThrottle);
             this.DoubleBuffered = true;
