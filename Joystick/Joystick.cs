@@ -7,7 +7,7 @@ using Microsoft.DirectX.DirectInput;
 
 namespace JoystickInterface
 {
-    public class Joystick
+    public class Joystick : IJoystick
     {
         private Device joystick;
         private InputRange range;

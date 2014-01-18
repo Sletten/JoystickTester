@@ -125,11 +125,22 @@ namespace JoystickTester
 
         private void drawButtons(Graphics g)
         {
-            //Gauge for 10 buttons.
-            for (int i = 0; i < 12; i++)
+            byte[] buttons = joystick.Buttons();
+
+            //Draw a maximum of 12 buttons
+            //to prevent a lot of buttons never
+            //used
+            int numberOfButtonsToDraw;
+            if (buttons.Length >= 12)
+                numberOfButtonsToDraw = 12;
+            else
+                numberOfButtonsToDraw = buttons.Length;
+
+            //Gauge for buttons.
+            for (int i = 0; i < numberOfButtonsToDraw; i++)
             {
                 //Highlight buttons that are pressed
-                if (joystick.Buttons()[i] != 0)
+                if (buttons[i] != 0)
                 {
                     g.FillEllipse(blackBrush, (350 + i * 30), 200, 20, 20);
                     g.DrawString((i + 1).ToString(), font, whiteBrush, new PointF((353 + i * 30.0F), 203.0F));
