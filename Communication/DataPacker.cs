@@ -35,6 +35,17 @@ namespace Communication
             this.joystick = joystick;
         }
 
+        public byte[] PackJoystickState()
+        {
+            return new byte[]{
+                Roll(),
+                Pitch(),
+                Yaw(),
+                ButtonsPressed(),
+                HatPov()
+            };
+        }
+
         public byte ButtonsPressed()
         {
             int buttons = 0;
@@ -77,5 +88,45 @@ namespace Communication
             }
         }
 
+        public byte Roll()
+        {
+            int roll = joystick.Roll();
+            if (isValid(roll))
+                return (byte)roll;
+            else return (byte)0;
+        }
+
+        public byte Pitch()
+        {
+            int pitch = joystick.Pitch();
+            if (isValid(pitch))
+                return (byte)pitch;
+            else return (byte)0;
+        }
+
+        public byte Yaw()
+        {
+            int yaw = joystick.Yaw();
+            if (isValid(yaw))
+                return (byte)yaw;
+            else return (byte)0;
+        }
+
+        public byte Throttle()
+        {
+            int throttle = joystick.Throttle();
+            if (isValid(throttle))
+                return (byte)throttle;
+            else
+                return (byte)0;
+        }
+
+        private Boolean isValid(int value)
+        {
+            if (value >= 0 && value <= 250)
+                return true;
+            else
+                return false;
+        }
     }
 }

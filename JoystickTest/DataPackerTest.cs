@@ -4,7 +4,7 @@ using Communication;
 using JoystickInterface;
 using System.Linq;
 
-namespace JoystickTest
+namespace Tests
 {
     [TestClass]
     public class DataPackerTest
