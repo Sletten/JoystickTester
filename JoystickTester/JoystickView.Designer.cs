@@ -32,6 +32,10 @@
             this.tmrUpdateStick = new System.Windows.Forms.Timer(this.components);
             this.trkThrottle = new System.Windows.Forms.TrackBar();
             this.trkYaw = new System.Windows.Forms.TrackBar();
+            this.lblRoll = new System.Windows.Forms.Label();
+            this.lblPitch = new System.Windows.Forms.Label();
+            this.lblYaw = new System.Windows.Forms.Label();
+            this.lblThrottle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trkThrottle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trkYaw)).BeginInit();
             this.SuspendLayout();
@@ -60,11 +64,51 @@
             this.trkYaw.TabIndex = 2;
             this.trkYaw.TickFrequency = 10;
             // 
+            // lblRoll
+            // 
+            this.lblRoll.AutoSize = true;
+            this.lblRoll.Location = new System.Drawing.Point(543, 22);
+            this.lblRoll.Name = "lblRoll";
+            this.lblRoll.Size = new System.Drawing.Size(31, 13);
+            this.lblRoll.TabIndex = 3;
+            this.lblRoll.Text = "Roll: ";
+            // 
+            // lblPitch
+            // 
+            this.lblPitch.AutoSize = true;
+            this.lblPitch.Location = new System.Drawing.Point(543, 61);
+            this.lblPitch.Name = "lblPitch";
+            this.lblPitch.Size = new System.Drawing.Size(37, 13);
+            this.lblPitch.TabIndex = 4;
+            this.lblPitch.Text = "Pitch: ";
+            // 
+            // lblYaw
+            // 
+            this.lblYaw.AutoSize = true;
+            this.lblYaw.Location = new System.Drawing.Point(543, 99);
+            this.lblYaw.Name = "lblYaw";
+            this.lblYaw.Size = new System.Drawing.Size(34, 13);
+            this.lblYaw.TabIndex = 5;
+            this.lblYaw.Text = "Yaw: ";
+            // 
+            // lblThrottle
+            // 
+            this.lblThrottle.AutoSize = true;
+            this.lblThrottle.Location = new System.Drawing.Point(543, 138);
+            this.lblThrottle.Name = "lblThrottle";
+            this.lblThrottle.Size = new System.Drawing.Size(49, 13);
+            this.lblThrottle.TabIndex = 6;
+            this.lblThrottle.Text = "Throttle: ";
+            // 
             // JoystickView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 298);
+            this.Controls.Add(this.lblThrottle);
+            this.Controls.Add(this.lblYaw);
+            this.Controls.Add(this.lblPitch);
+            this.Controls.Add(this.lblRoll);
             this.Controls.Add(this.trkYaw);
             this.Controls.Add(this.trkThrottle);
             this.DoubleBuffered = true;
@@ -85,6 +129,10 @@
         private System.Windows.Forms.Timer tmrUpdateStick;
         private System.Windows.Forms.TrackBar trkThrottle;
         private System.Windows.Forms.TrackBar trkYaw;
+        private System.Windows.Forms.Label lblRoll;
+        private System.Windows.Forms.Label lblPitch;
+        private System.Windows.Forms.Label lblYaw;
+        private System.Windows.Forms.Label lblThrottle;
     }
 }
 

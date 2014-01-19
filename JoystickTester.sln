@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoystickInterface", "Joysti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Communication", "Communication\Communication.csproj", "{41D649B0-B44B-45D2-8AD1-E11BC0D21F53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoystickTest", "JoystickTest\JoystickTest.csproj", "{CBBA3B3A-CE80-4A12-9DCF-323EC4F12BA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "JoystickTest\Tests.csproj", "{CBBA3B3A-CE80-4A12-9DCF-323EC4F12BA6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -126,7 +126,11 @@ namespace JoystickInterface
             //Set joystick axis mode absolute.
             joystick.Properties.AxisModeAbsolute = true;
 
-
+            /*We can interact with the joystick even if the window
+             * is not in focus or in the background (Background flag). We also let other
+             * applications interact with the joystick at the same time
+             * if they need to (NonExclusive flag).
+             */
             joystick.SetCooperativeLevel(
                 windowHandle,
                 CooperativeLevelFlags.NonExclusive |

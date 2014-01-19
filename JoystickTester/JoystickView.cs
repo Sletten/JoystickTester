@@ -17,8 +17,10 @@ namespace JoystickTester
     {
         private Joystick joystick;
 
-        private int roll = 0;
-        private int pitch = 0;
+        private int roll = 125;
+        private int pitch = 125;
+        private int yaw = 125;
+        private int throttlePercentage = 0;
         private int pov = -1;
 
         //Create something we can draw with
@@ -50,12 +52,16 @@ namespace JoystickTester
             //Capture stick Position.
             roll = joystick.Roll();
             pitch = joystick.Pitch();
+            yaw = joystick.Yaw();
+            throttlePercentage = joystick.Throttle();
 
             //Capture point-of-view hat
             pov = joystick.PointOfView();
 
             updateThrottleTracker();
             updateYawTracker();
+
+            updateLabels();
 
             this.Invalidate();
         }
@@ -75,8 +81,7 @@ namespace JoystickTester
 
         private void updateYawTracker()
         {
-            //Update yaw tracker
-            int yaw = joystick.Yaw();
+            //Update yaw tracker;
             if (yaw >= trkYaw.Minimum && yaw <= trkYaw.Maximum)
                 trkYaw.Value = yaw;
         }
@@ -84,7 +89,6 @@ namespace JoystickTester
         private void updateThrottleTracker()
         {
             //Update throttle tracker
-            int throttlePercentage = joystick.Throttle();
             if (throttlePercentage >= trkThrottle.Minimum && throttlePercentage <= trkThrottle.Maximum)
                 trkThrottle.Value = throttlePercentage;
         }
@@ -151,6 +155,14 @@ namespace JoystickTester
                     g.DrawString((i + 1).ToString(), font, blackBrush, new PointF((353 + i * 30.0F), 203.0F));
                 }
             }
+        }
+
+        private void updateLabels()
+        {
+            lblRoll.Text = "Roll: " + roll;
+            lblPitch.Text = "Pitch: " + pitch;
+            lblYaw.Text = "Yaw: " + yaw;
+            lblThrottle.Text = "Throttle: " + throttlePercentage;
         }
 
         private void tmrUpdateStick_Tick(object sender, EventArgs e)
