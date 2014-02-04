@@ -100,6 +100,10 @@ namespace UisSubsea.RovTopside.Presentation
 
         private void refresh()
         {
+            //Reverse
+            if (joystick.Buttons()[9])
+                mainpacketbuilder.ToggleReverse();
+
             //Capture stick Position.
             roll = joystick.Roll();
             pitch = joystick.Pitch();
@@ -228,11 +232,7 @@ namespace UisSubsea.RovTopside.Presentation
                     g.DrawString((i + 1).ToString(), font, blackBrush, new PointF((353 + i * 30.0F), 203.0F));
                 }
             }
-            //Check for reverse button
-            if (buttons[9])
-            {
-                mainpacketbuilder.ToggleReverse();
-            }
+
         }
 
         private void updateLabels()
