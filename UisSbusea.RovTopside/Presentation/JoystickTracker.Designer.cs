@@ -50,7 +50,7 @@
             // 
             // tmrRefreshStick
             // 
-            this.tmrRefreshStick.Interval = 10;
+            this.tmrRefreshStick.Interval = 20;         // setting the refreshrate to 50Hz (20ms interval)
             this.tmrRefreshStick.Tick += new System.EventHandler(this.tmrRefreshStick_Tick);
             // 
             // trkYaw

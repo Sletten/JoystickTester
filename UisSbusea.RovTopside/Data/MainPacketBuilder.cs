@@ -36,6 +36,7 @@ namespace UisSubsea.RovTopside.Data
 
         public override byte[] BuildJoystickStatePacket()
         {
+            /*
             if (reverse)
             {
                 roll = TransformRollToOpposite();
@@ -49,8 +50,8 @@ namespace UisSubsea.RovTopside.Data
                    ButtonsPressed(),
                    HatPov(),
                };
-            }
-            else
+            } 
+            else*/ // not using this part for now
             {
                 return new byte[]
                 {
@@ -58,8 +59,6 @@ namespace UisSubsea.RovTopside.Data
                     Pitch(),
                     Yaw(),
                     Throttle(),
-                    ButtonsPressed(),
-                    HatPov(),
                  };
             }
         }

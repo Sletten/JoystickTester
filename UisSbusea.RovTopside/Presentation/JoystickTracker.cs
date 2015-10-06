@@ -118,8 +118,10 @@ namespace UisSubsea.RovTopside.Presentation
 
             updateLabels();
 
-            if (readyToSend && !manualSend)
-                writeState();
+
+            // if (readyToSend && !manualSend)
+
+            writeState();
 
 
             //Repaint the form

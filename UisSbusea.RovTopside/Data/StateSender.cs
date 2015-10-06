@@ -13,8 +13,8 @@ namespace UisSubsea.RovTopside.Data
         private IList <PacketBuilder> packetBuilder;
         private SerialPort port;
 
-        private const byte startByte = 255;
-        private const byte stopByte = 251;
+        private const byte startByte1 = 155;
+        private const byte startByte2 = 185;
 
         public StateSender(IList <PacketBuilder> pb)
         {
@@ -25,21 +25,34 @@ namespace UisSubsea.RovTopside.Data
                 port.Open();
         }
 
+
+        // create the byte sequence to send
         public byte[] WriteState() 
         {
             
             List<byte> state = new List<byte>();
-           
-            state.Add(startByte);
-           
-            foreach( PacketBuilder builder in packetBuilder)
+
+            byte packageLength = 0; // temp filler
+
+            state.Add(startByte1);
+            state.Add(startByte2);
+
+            state.Add(packageLength);
+
+            foreach ( PacketBuilder builder in packetBuilder)
             {
                 byte[] package = builder.BuildJoystickStatePacket();
                 foreach (byte b in package)
+                {
                     state.Add(b);
+                    packageLength++;
+                }
             }
-            
-            state.Add(stopByte);
+
+            state.Insert(2, packageLength);
+            //state.Insert(2, (byte)(state.Count - 3)); // updates the packetLength
+
+
             byte[] finaleState = state.ToArray();
             port.Write(finaleState, 0, state.Count);
             return finaleState;
