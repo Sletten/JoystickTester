@@ -1,5 +1,4 @@
-rov-topside
+Joystick Tester PERF-mod
 ===========
 
-This repository consists of a topside control system for our ROV, as well as a graphical user interface. 
-The control system handles joystick inputs and data comunication, while the GUI presents camera feed and sesor data to the pilots.
+The Joystick tester is a debug software for sending joystick input over serial communication for use on ROV. The PERF-mod changes the communication protocol to work for the PERF system.
