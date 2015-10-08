@@ -36,7 +36,7 @@ namespace UisSubsea.RovTopside.Data
 
             state.Add(startByte1);
             state.Add(startByte2);
-
+            state.Add(0x11);
             state.Add(packageLength);
 
             foreach ( PacketBuilder builder in packetBuilder)
@@ -48,6 +48,11 @@ namespace UisSubsea.RovTopside.Data
                     packageLength++;
                 }
             }
+
+            state.Add(0);
+            state.Add(0);
+            packageLength++;
+            packageLength++;
 
             state.Insert(2, packageLength);
             //state.Insert(2, (byte)(state.Count - 3)); // updates the packetLength
