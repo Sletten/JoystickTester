@@ -116,7 +116,7 @@ namespace UisSubsea.RovTopside.Data
 
         private Boolean isValid(int value)
         {
-            if (value >= 0 && value <= 250)
+            if (value >= 1 && value <= 255)
                 return true;
             else
                 return false;

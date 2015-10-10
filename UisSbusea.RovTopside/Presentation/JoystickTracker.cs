@@ -19,9 +19,9 @@ namespace UisSubsea.RovTopside.Presentation
         private Joystick joystickManipulatorLeft;
         private Joystick joystickManipulatorRight;
 
-        private int roll = 125;
-        private int pitch = 125;
-        private int yaw = 125;
+        private int roll = 128;
+        private int pitch = 128;
+        private int yaw = 128;
         private int throttlePercentage = 0;
         private int pov = -1;
         private int numberOfJoysticksAttached = 0;

@@ -50,25 +50,27 @@
             // 
             // tmrRefreshStick
             // 
-            this.tmrRefreshStick.Interval = 40;         // setting the refreshrate to 25Hz (40ms interval)
+            this.tmrRefreshStick.Interval = 20;         // setting the refreshrate to 25Hz (40ms interval)
             this.tmrRefreshStick.Tick += new System.EventHandler(this.tmrRefreshStick_Tick);
             // 
             // trkYaw
             // 
             this.trkYaw.Location = new System.Drawing.Point(16, 304);
             this.trkYaw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.trkYaw.Maximum = 250;
+            this.trkYaw.Maximum = 255;
+            this.trkYaw.Minimum = 1;
             this.trkYaw.Name = "trkYaw";
             this.trkYaw.Size = new System.Drawing.Size(291, 56);
             this.trkYaw.TabIndex = 0;
             this.trkYaw.TickFrequency = 25;
-            this.trkYaw.Value = 125;
+            this.trkYaw.Value = 128;
             // 
             // trkThrottle
             // 
             this.trkThrottle.Location = new System.Drawing.Point(316, 15);
             this.trkThrottle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.trkThrottle.Maximum = 250;
+            this.trkThrottle.Maximum = 255;
+            this.trkThrottle.Minimum = 1;
             this.trkThrottle.Name = "trkThrottle";
             this.trkThrottle.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.trkThrottle.Size = new System.Drawing.Size(56, 261);

@@ -18,7 +18,7 @@ namespace UisSubsea.RovTopside.Data
 
         public Joystick(IntPtr windowHandle)
         {
-            range = new InputRange(0, 250);
+            range = new InputRange(1, 255);
             type = JoystickType.MainController;
             createJoystick();
             configureJoystick(windowHandle);
@@ -78,7 +78,7 @@ namespace UisSubsea.RovTopside.Data
             //Invert the throttle value.
             //By default it will go from range.Max to range.Min
             //We want it to go the other way.
-            return - (throttle - range.Maximum);
+            return range.Maximum  - throttle + 1;
         }
 
         public int PointOfView()

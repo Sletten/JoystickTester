@@ -57,15 +57,15 @@ namespace UisSubsea.RovTopside.Data
                 {
                     Roll(),
                     Pitch(),
-                    Yaw(),
                     Throttle(),
+                    Yaw(),
                  };
             }
         }
 
         private Boolean joystickIsInNeutral()
         {
-            if (joystick.Pitch() == 125 && joystick.Roll() == 125)
+            if (joystick.Pitch() == 128 && joystick.Roll() == 128)
                 return true;
             else
                 return false;
@@ -75,15 +75,15 @@ namespace UisSubsea.RovTopside.Data
         {
             int temp = joystick.Pitch();
 
-            checkValuePitch = temp - 125;
+            checkValuePitch = temp - 128;
             if (checkValuePitch > 0)
             {
-                negativePitch = 125 - checkValuePitch;
+                negativePitch = 128 - checkValuePitch;
             }
             else
             {
                 checkValuePitch *= -1;
-                negativePitch = 125 + checkValuePitch;
+                negativePitch = 128 + checkValuePitch;
                 checkValuePitch = 0;
             }
 
@@ -93,15 +93,15 @@ namespace UisSubsea.RovTopside.Data
         {
             int temp = joystick.Roll();
 
-            checkValueRoll = temp - 125;
+            checkValueRoll = temp - 128;
             if (checkValueRoll > 0)
             {
-                negativeRoll = 125 - checkValueRoll;
+                negativeRoll = 128 - checkValueRoll;
             }
             else
             {
                 checkValueRoll *= -1;
-                negativeRoll = 125 + checkValueRoll;
+                negativeRoll = 128 + checkValueRoll;
                 checkValueRoll = 0;
             }
 

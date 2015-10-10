@@ -19,7 +19,7 @@ namespace UisSubsea.RovTopside.Data
                 return mainController;
             else
                 return JoystickFactory.mainController = new Joystick(
-                    windowHandle, 0, 250, JoystickType.MainController);
+                    windowHandle, 1, 255, JoystickType.MainController);
         }
 
         public static Joystick getManipulatorLeft(IntPtr windowHandle)
@@ -28,7 +28,7 @@ namespace UisSubsea.RovTopside.Data
                 return manipulatorLeft;
             else
                 return JoystickFactory.manipulatorLeft = new Joystick(
-                    windowHandle, 0, 250, JoystickType.ManipulatorLeft);
+                    windowHandle, 1, 255, JoystickType.ManipulatorLeft);
         }
 
         public static Joystick getManipulatorRight(IntPtr windowHandle)
@@ -37,7 +37,7 @@ namespace UisSubsea.RovTopside.Data
                 return manipulatorRight;
             else
                 return JoystickFactory.manipulatorRight = new Joystick(
-                    windowHandle, 0, 250, JoystickType.ManipulatorRight);
+                    windowHandle, 1, 255, JoystickType.ManipulatorRight);
         }
 
     }
